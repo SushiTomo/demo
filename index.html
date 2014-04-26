@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />    
+	<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Start a healthier lifestyle today">
+	<meta name="keywords" content="health">
+	<title>Sushi-Tomo</title>
+	<!--Foundation-->
+	<link rel="stylesheet" href="css/foundation.css" />
+	<script src="js/vendor/modernizr.js"></script>
+	<!--jQuery Mobile-->    
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-mobile.js"></script>
+	<!--Custom-->		
+	<link rel="stylesheet" href="css/style.css" />    
+	<link rel="stylesheet" href="css/menu.css" />     
+	<script src="js/animation-enhanced.js"></script>
+	<script src="js/application.js"></script>
+	<script>
+
+		$.ajax({
+			url: "menu.html",
+			cache: false
+		})
+		.done(function( html ) {
+			$( "#menu-holder" ).append( html );
+		});
+
+		$.ajax({
+			url: "signin.html",
+			cache: false
+		})
+		.done(function( html ) {
+			$( "#container" ).append( html );
+		});
+		$.ajax({
+        url: "header.html",
+        cache: false
+      })
+      .done(function( html ) {
+        $( "#header" ).append( html );
+      });
+	</script>
+</head>
+<body>
+
+	<div data-role="panel" id="mypanel" data-position="right" data-display="overlay">    
+		<div id="menu-holder"></div>
+	</div>
+
+	<div id="header"></div>
+	<div id="place-holder"></div>
+
+	<div id="container">
+		
+	</div>
+
+
+
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+</body>
+</html>

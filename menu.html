@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<link rel="stylesheet" href="css/font-awesome/font-awesome.css" />    
+<link rel="stylesheet" href="css/foundation-icons.css" />    
+<link rel="stylesheet" href="css/style.css" />   
+<script src="js/application.js"></script> 
+<div id='cssmenu'>
+  Welcome to SushiTomo
+  <hr/>
+  <ul>
+   <li><a href='#' class="home"><i class="fi-home step size-small"></i> Home</a></li>
+   <li><a href='#' class="course"><i class="fi-lock step size-small"></i> Login</a></li>
+   <li class='last'><a href='#' class="logout"><i class="fi-telephone step size-small"></i> About Us</span></a></li>
+ </ul>
+ <div class="small-space-vertical"></div>
+</div>
+
+<style>
+  #cssmenu hr{
+    padding: 0;
+    margin-top: 5px;      
+  }   
+  #cssmenu .search-box{
+    text-align: left;
+    padding: 0;
+    margin:0;
+  }
+  #cssmenu .search-icon {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    text-shadow: 1px 1px 1px #30699C, 0 0 0 #000000, 1px 1px 1px #30699C;  
+    color: #2E2E2E;
+  }   
+  #cssmenu i.step{
+    position: relative;
+    top: 0.1em;
+    display: inline-block;
+    margin-right: 0.4em;
+    text-shadow: 1px 1px 1px #30699C, 0 0 0 #000000, 1px 1px 1px #30699C;  
+    color:#0A1E40;
+  }
+  div{
+    overflow: scroll;
+  }
+
+</style>
+
+<script>
+ $( document ).ready(function() {
+
+  $('.home').click(function(){
+    window.location.href = "home2.html";
+  });
+  $('.your-course').click(function(){
+    window.location.href = "your-courses.html";
+  });
+  $('.activity').click(function(){
+    window.location.href = "activities.html";
+  });
+  $('.img-search').click(function(){
+    window.location.href = "search-result.html";
+  });
+
+  $('#cssmenu > ul > li > a').click(function() {
+    $('#cssmenu li').removeClass('active');
+    $(this).closest('li').addClass('active'); 
+    var checkElement = $(this).next();
+    if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+      $(this).closest('li').removeClass('active');
+      checkElement.slideUp('normal');
+    }
+    if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+      $('#cssmenu ul ul:visible').slideUp('normal');
+      checkElement.slideDown('normal');
+    }
+    if($(this).closest('li').find('ul').children().length == 0) {
+      return true;
+    } else {
+      return false; 
+    }   
+  });
+
+  $(function () {
+    $('#cssmenu').css({
+      'height': ($(document).height()) + 'px'
+    });
+    $(window).resize(function () {
+      $('#cssmenu').css({
+        'height': ($(document).height()) + 'px'
+      });
+    });
+  });
+
+});   
+</script>

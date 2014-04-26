@@ -1,0 +1,236 @@
+@charset 'UTF-8';
+/* Base Styles */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: "Abel", sans-serif;
+  font-size: 1.03em;
+  position: relative;
+  font-weight: normal;
+  text-shadow: none;
+}
+#cssmenu a {
+  -moz-user-select: none;
+  line-height: 1.8;
+}
+#cssmenu {
+  width: 100%;
+  overflow-y:auto;
+  color: #CFE8FC;
+}
+#cssmenu > ul > li {
+  margin: 0 0 2px 0;
+}
+#cssmenu > ul > li:last-child {
+  margin: 0;
+}
+#cssmenu > ul > li > a {
+  display: block;
+  color: #ffffff;
+  border-bottom: 1px solid #6287A8;  
+}
+#cssmenu > ul > li:last-child > a{
+  border-bottom: none;  
+}
+#cssmenu > ul > li > a{
+  display: block;  
+  padding: 0 7px;  
+}
+#cssmenu > ul > li > a:hover {
+  text-decoration: none;
+}
+#cssmenu > ul > li.active {
+  border-bottom: none;
+  font-weight:600;
+}
+#cssmenu > ul > li.active > a {
+  background: #B6EFFC;
+  background: -moz-linear-gradient(#B6EFFC 0%, #9CE0F0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B6EFFC), color-stop(100%, #9CE0F0));
+  background: -webkit-linear-gradient(#B6EFFC 0%, #9CE0F0 100%);
+  background: linear-gradient(#B6EFFC 0%, #9CE0F0 100%);
+  color: #1C5E99;
+  border: 1px solid #9CE0F0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-weight:bold;
+}
+#cssmenu > ul > li.active > a span {
+}
+
+#cssmenu > ul > li.has-sub.active > a span {
+  background: url(icon_minus.png) 98% center no-repeat;
+}
+/* Sub menu */
+#cssmenu ul ul {
+  padding: 5px 12px;
+  display: none;
+}
+#cssmenu ul ul li {
+  padding: 3px 0;
+}
+#cssmenu ul ul a {
+  display: block;
+  color: #fff;
+  font-size: 0.8em;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          px;
+}
+#cssmenu ul ul a:hover {
+  color: #B6EFFC;
+}
+.small-space-vertical{
+  width: 100%;
+  height: 20px;
+}
+
+#mypanel{
+  background: #1C5E99;
+  padding:0;
+  opacity:0.98;
+  overflow: auto;
+}
+
+/*span.home{
+  background: url(home.png) -3px center no-repeat;
+  background-size: 25px 25px; 
+}
+span.activity{
+  background: url(activity.png) left center no-repeat;
+  background-size: 20px 20px; 
+}
+span.your-course{
+  background: url(course.png) -10px center no-repeat;
+  background-size: 40px 40px; 
+}
+span.health{
+  background: url(health.png) left center no-repeat;
+  background-size: 25px 25px; 
+}
+#cssmenu > ul > li.has-sub > a span.health {
+  background: url(health.png) -5px center no-repeat, url(icon_plus.png) 98% center no-repeat;
+  background-size: 30px 30px, 15px 15px; 
+}
+#cssmenu > ul > li.has-sub.active > a span.health {
+  background: url(health.png) -5px center no-repeat, url(icon_minus.png) 98% center no-repeat;
+  background-size: 30px 30px, 15px 15px; 
+}
+span.exercise{
+  background: url(exercise.png) left center no-repeat;
+  background-size: 25px 25px; 
+}
+#cssmenu > ul > li.has-sub > a span.exercise {
+  background: url(exercise.png) -5px center no-repeat, url(icon_plus.png) 98% center no-repeat;
+  background-size: 30px 30px, 15px 15px; 
+}
+#cssmenu > ul > li.has-sub.active > a span.exercise {
+  background: url(exercise.png) -5px center no-repeat, url(icon_minus.png) 98% center no-repeat;
+  background-size: 30px 30px, 15px 15px; 
+}
+span.contact{
+  background: url(contact.png) left center no-repeat;
+  background-size: 25px 25px; 
+}
+span.subscription{
+  background: url(subscription.png) left center no-repeat;
+  background-size: 25px 25px; 
+}*/
+.bottom_nav{
+  position: fixed;
+  bottom: 0;    
+  z-index: 1000; 
+}
+.bottom_nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.bottom_nav ul li{
+  display: inline-block;    
+  margin:0;
+  padding: 0;
+  margin-left: -0.2em;
+}
+.bottom_nav ul li a, .bottom_nav ul li a:hover, .bottom_nav ul li a:visited{  
+  display: block;
+  padding: 0.2em 0.4em 0 0.2em;
+  text-decoration: none;
+  font-weight: bold;
+  border-top: 1px solid #ccc;  
+  background-color: transparent;
+  background: rgba(242,242,242, 1);
+  color: #4494DB;
+  border-right: 1px solid #ccc;
+}
+.bottom_nav i{
+  margin-right: 0.7em;
+}
+span.text{
+  position: relative;
+  top: -0.2em;
+}
+.bottom_nav ul li:first-child a {
+  border-left: 1px solid #ccc;   
+}
+.bottom_nav ul li:first-child a{
+  -webkit-border-top-left-radius: 0.2em;
+  -moz-border-radius-topleft: 0.2em;
+  border-top-left-radius: 0.2em;
+}
+.bottom_nav ul li:last-child a, .bottom_nav ul li.last a{
+  -webkit-border-top-right-radius: 0.2em;
+  -moz-border-right-topleft: 0.2em;
+  border-top-right-radius: 0.2em;
+}
+
+.bottom_nav ul li a.basic_info, .bottom_nav ul li a.social-home{
+  color: rgba(28, 94, 153, 1);
+}
+.bottom_nav ul li a.friend{  
+  color: rgba(122, 4, 212, 0.8);
+}
+.bottom_nav ul li a.advance_info, .bottom_nav ul li a.mail{  
+  color: rgba(3, 110, 5, 1);
+}
+.bottom_nav ul li a.setting{  
+  color: rgba(105, 105, 105, 1);
+}
+.bottom_nav ul li a.password{  
+  color: rgba(207, 70, 70, 1);
+}
+.bottom_nav ul li a.invitation{  
+  color: rgba(135, 76, 50, 1);
+}
+/*CURRENT*/
+.bottom_nav ul li.current a {  
+  text-shadow: 1px 2px 3px #FFFFFF, 0 0 0 #000000, 1px 2px 3px #FFFFFF;  
+}
+.bottom_nav ul li.current a{
+  background: #EDF5FC;
+}
+.bottom_nav ul li.current a.basic_info, .bottom_nav ul li.current a.social-home{
+  background: #EDF5FC;
+}
+.bottom_nav ul li.current a.advance_info, .bottom_nav ul li.current a.mail{  
+  background: #E6FCE6;
+}
+.bottom_nav ul li.current a.setting{  
+  background: #EBE8E9;
+}
+.bottom_nav ul li.current a.password{  
+  background: #FFF5F5;
+}
+.bottom_nav ul li.current a.invitation{  
+  background: #FFFBED;
+}
+.bottom_nav ul li.current a.friend{  
+  background: #F9EDFF;
+}

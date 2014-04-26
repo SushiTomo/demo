@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />    
+	<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="description" content="Start a healthier lifestyle today">
+	<meta name="keywords" content="health">
+	<title>Sushi-Tomo</title>
+	<!--Foundation-->
+	<link rel="stylesheet" href="css/foundation.css" />
+	<script src="js/vendor/modernizr.js"></script>
+	<!--jQuery Mobile-->    
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/jquery-ui.css" />		
+	<script src="js/jquery.js"></script>			
+	<script src="js/jquery-mobile.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<!--Custom-->		
+	<link rel="stylesheet" href="css/style.css" />    
+	<link rel="stylesheet" href="css/menu.css" />     
+	
+	<script src="js/application.js"></script>
+
+	<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
+	<style>
+		#container{    	
+			overflow: hidden;
+		}    	
+		#notice{
+			margin-left: 15px;
+		}
+	</style>
+
+	<script>		
+		window.alert = function() {};
+		$.ajax({
+			url: "menu.html",
+			cache: false
+		})
+		.done(function( html ) {
+			$( "#menu-holder" ).append( html );
+		});
+
+		$.ajax({
+			url: "header.html",
+			cache: false
+		})
+		.done(function( html ) {
+			$( "#header" ).append( html );
+		});
+ 
+		function changeSize(){
+		  var orientation = "portrait";
+		  if(window.innerWidth > window.innerHeight){
+		  	orientation = "landscape";
+		  }
+		  else{
+		  	orientation = "portrait";
+		  }		  
+		  var imgWidth = 0;
+		  if(orientation == "landscape") {
+		  	imgWidth = $(".show-for-landscape .course-link:visible").first().width();
+		  	var newH = imgWidth * 0.9;
+		  	$('.show-for-landscape .course-link img').css({'width' : imgWidth + 'px' , 'height' : newH + 'px'});  		  
+		  }
+		  else {
+		  	imgWidth = $(".show-for-portrait .course-link:visible").first().width();
+		  	var newH = imgWidth * 0.9;
+		  	$('.show-for-portrait .course-link img').css({'width' : imgWidth + 'px' , 'height' : newH + 'px'});  		  
+		  }		  
+		}
+
+		$(window).load(function(event){
+		  changeSize();
+		});
+
+		$(window).bind('resize', function (e) {     
+		    changeSize();
+		});
+
+	</script>
+</head>
+<body>
+
+	<div data-role="panel" id="mypanel" data-position="right" data-display="overlay">    
+		<div id="menu-holder"></div>
+	</div>
+
+	<div id="header"></div>
+	<div id="place-holder"></div>
+
+	<script id='code_1'>
+
+	var page=1;
+	function changePage(){				
+
+	}
+	function test(){
+		alert("Testing");
+	}
+                var int=self.setInterval(changePage, 6000);
+	//setTimeout(changePage,500);
+
+	$(function() {			
+		$(".page").hide();
+		$("#page1").show();
+		
+		$("#container").swipe( {
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				window.clearInterval(int);
+				var d = "right";
+				if(direction == "up" || direction == "down"){
+                                        if(direction == "up"){
+                                                $(".page").hide();
+                                                $("#page-intro").show('blind', {},900);
+                                        }
+                                        else{
+                                                $("#page-intro").hide();
+                                                $(".page").hide();
+                                                $("#page" + page).show('blind', {},900);
+                                                
+                                        }
+                                }
+                                else{
+                                        if(direction == "right") {
+                                                page = page-1;
+                                                d = "left";
+                                        }
+                                        else if(direction == "left") {
+                                                page = page+1;
+                                                d = "right";
+                                        }
+                                        if(page > 3) {
+                                                page = 3;
+                                                return;
+                                        }
+                                        if(page < 1)  {
+                                                page = 1;
+                                                return;
+                                        }												
+                                        $(".notice").text("Page " + page + " / 3 (Swipe to navigate)")								
+                                        $(".page_num").removeClass("page_divider_active");
+                                        $(".page_num").addClass("page_divider");
+                                        $("#page_num_" + page).removeClass("page_divider");
+                                        $("#page_num_" + page).addClass("page_divider_active");
+                                        $(".page").hide();
+                                        $("#page" + page).show('blind', {},900);
+                                }
+			},
+			threshold:0,
+			fingers:'all'
+		});
+	});
+	</script>
+	
+	<div id="container" style="margin-top: -.5em">
+                <div class="small-12 columns no-padding" id="page-intro" style="display:none;">
+                        INTRODUCTION
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                        </div>
+
+		<div id="page1" class="page" >
+			<div class="small-12 columns no-padding">
+				<div class="profile-picture small-12">
+                                        <img src="img/profile_pic_01.jpg" alt="profile picture" />
+                                </div>
+                                <div class="profile-info small-12">
+                                        <div class="small-3 columns user-avatar">
+                                                <img src="img/default_ava.jpg" alt="" />
+                                        </div>
+                                        <div class="small-9 columns user-information">
+                                                <span class="name">Shunsuke Ono</span><br/>
+                                                <span class="other-info">shunsuke.ono@gmail.com</span>
+                                        </div>
+                                </div>
+			</div>
+                </div>
+			<!--PAGE 2-->
+		<div id="page2" class="page" >
+                        <div class="small-12 columns no-padding">
+				<div class="profile-picture small-12">
+                                        <img src="img/profile_pic_02.jpg" alt="profile picture" />
+                                </div>
+                                <div class="profile-info small-12">
+                                        <div class="small-3 columns user-avatar">
+                                                <img src="img/default_ava.jpg" alt="" />
+                                        </div>
+                                        <div class="small-9 columns user-information">
+                                                <span class="name">Tomoki Sato</span><br/>
+                                                <span class="other-info">tomoki.sato@gmail.com</span>
+                                        </div>
+                                </div>
+			</div>
+		</div>
+			<!--PAGE 3-->
+		<div id="page3" class="page" >
+			 <div class="small-12 columns no-padding">
+				<div class="profile-picture small-12">
+                                        <img src="img/profile_pic_03.jpeg" alt="profile picture" />
+                                </div>
+                                <div class="profile-info small-12">
+                                        <div class="small-3 columns user-avatar">
+                                                <img src="img/default_ava.jpg" alt="" />
+                                        </div>
+                                        <div class="small-9 columns user-information">
+                                                <span class="name">Anh Nguyen</span><br/>
+                                                <span class="other-info">anh.nguyen@gmail.com</span>
+                                        </div>
+                                </div>
+			</div>
+		</div>
+        </div>
+
+	<script src="js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+
+	<style>
+                .user-information .name{font-size: 1.15em; font-weight: 600; }
+	</style>
+</body>
+</html>
